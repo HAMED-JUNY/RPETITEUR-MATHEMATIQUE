@@ -1,1 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapitre 1: Polynômes - Première D Cameroun</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      min-height: 100vh;
+    }
+    .exercise-card {
+      transition: all 0.3s ease;
+    }
+    .exercise-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .solution {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    .solution.show {
+      max-height: 1000px;
+    }
+    .correct-answer {
+      border: 2px solid #10B981;
+      background-color: #D1FAE5;
+    }
+    .incorrect-answer {
+      border: 2px solid #EF4444;
+      background-color: #FEE2E2;
+    }
+    .math {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+  <div class="max-w-6xl mx-auto">
+    <!-- Navigation Breadcrumb -->
+    <nav class="flex mb-5 text-sm" aria-label="Breadcrumb">
+      <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+          <a href="../index.html" class="inline-flex items-center text-gray-700 hover:text-blue-600">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+            </svg>
+            Accueil
+          </a>
+        </li>
+        <li aria-current="page">
+          <div class="flex items-center">
+            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="ml-1 font-medium text-gray-500 md:ml-2">Chapitre 1: Polynômes</span>
+          </div>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl shadow-lg p-6 mb-8">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+          <h1 class="text-3xl md:text-4xl font-bold text-white">Chapitre 1: Polynômes</h1>
+          <p class="text-blue-100 mt-2 text-lg">Programme de Première D - Cameroun</p>
+        </div>
+        <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Sidebar with Table of Contents -->
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-xl shadow-md p-6 sticky top-8">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+            </svg>
+            Sommaire du chapitre
+          </h2>
+          <nav class="space-y-2">
+            <a href="#introduction" class="block p-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-700 transition-colors">
+              1. Introduction aux polynômes
+            </a>
+            <a href="#operations" class="block p-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-700 transition-colors">
+              2. Opérations sur les polynômes
+            </a>
+            <a href="#factorisation" class="block p-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-700 transition-colors">
+              3. Factorisation des polynômes
+            </a>
+            <a href="#division" class="block p-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-700 transition-colors">
+              4. Division euclidienne
+            </a>
+            <a href="#exercices" class="block p-3 rounded-lg bg-blue-100 text-blue-700 font-medium">
+              5. Exercices interactifs
+            </a>
+          </nav>
+          
+          <hr class="my-6 border-gray-200">
+          
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">Ressources</h3>
+          <div class="space-y-3">
+            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-700 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Télécharger le cours (PDF)
+            </a>
+            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-700 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Aide et conseils
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Introduction Section -->
+        <section id="introduction" class="bg-white rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">1. Introduction aux polynômes</h2>
+          <div class="prose max-w-none text-gray-600">
+            <p>Un polynôme est une expression algébrique constituée d'une somme finie de termes, chacun étant le produit d'une constante (le coefficient) et d'une ou plusieurs variables élevées à une puissance entière non négative.</p>
+            
+            <div class="bg-blue-50 p-4 rounded-lg my-4">
+              <h3 class="text-lg font-medium text-blue-800 mb-2">Définition</h3>
+              <p class="text-blue-700">Un polynôme à une variable \(x\) de degré \(n\) s'écrit sous la forme :</p>
+              <p class="text-center my-2">\(P(x) = a_nx^n + a_{n-1}x^{n-1} + \ldots + a_1x + a_0\)</p>
+              <p class="text-blue-700">où \(a_n \neq 0\) et \(a_0, a_1, \ldots, a_n\) sont des nombres réels appelés coefficients du polynôme.</p>
+            </div>
+            
+            <h3 class="text-xl font-medium text-gray-700 mt-6 mb-3">Exemples de polynômes</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>\(P_1(x) = 3x^2 - 5x + 2\) est un polynôme de degré 2</li>
+              <li>\(P_2(x) = x^3 + 4\) est un polynôme de degré 3</li>
+              <li>\(P_3(x) = -2x^4 + 3x^3 - 7x + 1\) est un polynôme de degré 4</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Operations Section -->
+        <section id="operations" class="bg-white rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">2. Opérations sur les polynômes</h2>
+          <div class="prose max-w-none text-gray-600">
+            <h3 class="text-xl font-medium text-gray-700 mb-3">Addition et soustraction</h3>
+            <p>Pour additionner ou soustraire deux polynômes, on additionne ou soustrait les coefficients des termes de même degré.</p>
+            
+            <div class="bg-gray-50 p-4 rounded-lg my-4">
+              <p class="font-medium">Exemple :</p>
+              <p>\(P_1(x) = 3x^2 - 5x + 2\)</p>
+              <p>\(P_2(x) = 2x^2 + 3x - 1\)</p>
+              <p class="mt-2">\(P_1(x) + P_2(x) = (3x^2 - 5x + 2) + (2x^2 + 3x - 1)\)</p>
+              <p>\(P_1(x) + P_2(x) = 5x^2 - 2x + 1\)</p>
+            </div>
+            
+            <h3 class="text-xl font-medium text-gray-700 mt-6 mb-3">Multiplication</h3>
+            <p>Pour multiplier deux polynômes, on multiplie chaque terme du premier polynôme par chaque terme du second, puis on regroupe les termes semblables.</p>
+            
+            <div class="bg-gray-50 p-4 rounded-lg my-4">
+              <p class="font-medium">Exemple :</p>
+              <p>\(P_1(x) = x + 2\)</p>
+              <p>\(P_2(x) = x^2 - 3\)</p>
+              <p class="mt-2">\(P_1(x) \times P_2(x) = (x + 2) \times (x^2 - 3)\)</p>
+              <p>\(P_1(x) \times P_2(x) = x \times x^2 - x \times 3 + 2 \times x^2 - 2 \times 3\)</p>
+              <p>\(P_1(x) \times P_2(x) = x^3 - 3x + 2x^2 - 6\)</p>
+              <p>\(P_1(x) \times P_2(x) = x^3 + 2x^2 - 3x - 6\)</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Factorisation Section -->
+        <section id="factorisation" class="bg-white rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">3. Factorisation des polynômes</h2>
+          <div class="prose max-w-none text-gray-600">
+            <p>La factorisation consiste à exprimer un polynôme comme un produit de polynômes de degrés inférieurs.</p>
+            
+            <h3 class="text-xl font-medium text-gray-700 mt-4 mb-3">Méthodes de factorisation</h3>
+            
+            <h4 class="text-lg font-medium text-gray-700 mt-4 mb-2">3.1. Mise en facteur commun</h4>
+            <div class="bg-gray-50 p-4 rounded-lg my-3">
+              <p class="font-medium">Exemple :</p>
+              <p>\(P(x) = 3x^3 + 6x^2 - 9x\)</p>
+              <p>\(P(x) = 3x(x^2 + 2x - 3)\)</p>
+            </div>
+            
+            <h4 class="text-lg font-medium text-gray-700 mt-4 mb-2">3.2. Identités remarquables</h4>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>\((a + b)^2 = a^2 + 2ab + b^2\)</li>
+              <li>\((a - b)^2 = a^2 - 2ab + b^2\)</li>
+              <li>\((a + b)(a - b) = a^2 - b^2\)</li>
+            </ul>
+            
+            <div class="bg-gray-50 p-4 rounded-lg my-3">
+              <p class="font-medium">Exemple :</p>
+              <p>\(P(x) = x^2 - 4\)</p>
+              <p>\(P(x) = x^2 - 2^2\)</p>
+              <p>\(P(x) = (x + 2)(x - 2)\)</p>
+            </div>
+            
+            <h4 class="text-lg font-medium text-gray-700 mt-4 mb-2">3.3. Théorème du reste et factorisation par (x - a)</h4>
+            <p>Si \(a\) est une racine du polynôme \(P(x)\), alors \(P(x)\) est divisible par \((x - a)\).</p>
+            
+            <div class="bg-gray-50 p-4 rounded-lg my-3">
+              <p class="font-medium">Exemple :</p>
+              <p>\(P(x) = x^3 - 4x^2 + 5x - 2\)</p>
+              <p>On vérifie que \(P(1) = 1 - 4 + 5 - 2 = 0\)</p>
+              <p>Donc \(x - 1\) est un facteur de \(P(x)\)</p>
+              <p>\(P(x) = (x - 1)(x^2 - 3x + 2)\)</p>
+              <p>\(P(x) = (x - 1)(x - 1)(x - 2)\)</p>
+              <p>\(P(x) = (x - 1)^2(x - 2)\)</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Division Section -->
+        <section id="division" class="bg-white rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">4. Division euclidienne</h2>
+          <div class="prose max-w-none text-gray-600">
+            <p>La division euclidienne de deux polynômes \(P(x)\) et \(D(x)\) consiste à trouver deux polynômes \(Q(x)\) (quotient) et \(R(x)\) (reste) tels que :</p>
+            <p class="text-center my-3">\(P(x) = D(x) \times Q(x) + R(x)\)</p>
+            <p>avec \(R(x) = 0\) ou \(\text{deg}(R) < \text{deg}(D)\).</p>
+            
+            <h3 class="text-xl font-medium text-gray-700 mt-4 mb-3">Méthode de division</h3>
+            <ol class="list-decimal pl-6 space-y-2">
+              <li>Ordonner les polynômes par ordre décroissant des puissances.</li>
+              <li>Diviser le terme de plus haut degré du dividende par le terme de plus haut degré du diviseur.</li>
+              <li>Multiplier le diviseur par le résultat obtenu et soustraire du dividende.</li>
+              <li>Répéter jusqu'à ce que le degré du reste soit inférieur au degré du diviseur.</li>
+            </ol>
+            
+            <div class="bg-gray-50 p-4 rounded-lg my-4">
+              <p class="font-medium">Exemple :</p>
+              <p>Diviser \(P(x) = 2x^3 - 5x^2 + 3x - 1\) par \(D(x) = x - 2\)</p>
+              
+              <div class="mt-3">
+                <p>Étape 1: \(2x^3 \div x = 2x^2\)</p>
+                <p>Étape 2: \(2x^2 \times (x - 2) = 2x^3 - 4x^2\)</p>
+                <p>Étape 3: \(2x^3 - 5x^2 - (2x^3 - 4x^2) = -x^2 + 3x - 1\)</p>
+                <p>Étape 4: \(-x^2 \div x = -x\)</p>
+                <p>Étape 5: \(-x \times (x - 2) = -x^2 + 2x\)</p>
+                <p>Étape 6: \(-x^2 + 3x - 1 - (-x^2 + 2x) = x - 1\)</p>
+                <p>Étape 7: \(x \div x = 1\)</p>
+                <p>Étape 8: \(1 \times (x - 2) = x - 2\)</p>
+                <p>Étape 9: \(x - 1 - (x - 2) = 1\)</p>
+              </div>
+              
+              <p class="mt-3">Donc \(P(x) = (x - 2)(2x^2 - x + 1) + 1\)</p>
+              <p>Quotient: \(Q(x) = 2x^2 - x + 1\)</p>
+              <p>Reste: \(R(x) = 1\)</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Exercises Section -->
+        <section id="exercices" class="bg-white rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-6">5. Exercices interactifs</h2>
+          
+          <!-- Exercise 1 -->
+          <div class="exercise-card bg-blue-50 rounded-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-blue-800 mb-4">Exercice 1: Addition de polynômes</h3>
+            <p class="text-gray-700 mb-4">Calculez la somme des polynômes suivants :</p>
+            <p class="text-gray-800 font-medium mb-4">\(P(x) = 2x^3 - 4x^2 + 3x - 5\) et \(Q(x) = -x^3 + 2x^2 - 3x + 1\)</p>
+            
+            <div class="mb-4">
+              <label for="exercise1-answer" class="block text-gray-700 font-medium mb-2">Votre réponse :</label>
+              <input type="text" id="exercise1-answer" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Exemple: x^3 - 2x^2 + x - 4">
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+              <button id="check-exercise1" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                Vérifier ma réponse
+              </button>
+              <button id="show-solution1" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors">
+                Voir la solution
+              </button>
+            </div>
+            
+            <div id="feedback-exercise1" class="mt-4 p-4 rounded-lg hidden"></div>
+            
+            <div id="solution-exercise1" class="solution mt-4 p-4 bg-gray-100 rounded-lg">
+              <h4 class="font-semibold text-gray-800 mb-2">Solution :</h4>
+              <p>\(P(x) + Q(x) = (2x^3 - 4x^2 + 3x - 5) + (-x^3 + 2x^2 - 3x + 1)\)</p>
+              <p>\(P(x) + Q(x) = 2x^3 - x^3 - 4x^2 + 2x^2 + 3x - 3x - 5 + 1\)</p>
+              <p>\(P(x) + Q(x) = x^3 - 2x^2 - 4\)</p>
+              <p class="mt-2 text-blue-700 font-medium">La réponse correcte est : \(x^3 - 2x^2 - 4\)</p>
+            </div>
+          </div>
+          
+          <!-- Exercise 2 -->
+          <div class="exercise-card bg-green-50 rounded-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-green-800 mb-4">Exercice 2: Factorisation</h3>
+            <p class="text-gray-700 mb-4">Factorisez le polynôme suivant :</p>
+            <p class="text-gray-800 font-medium mb-4">\(P(x) = x^3 - 4x^2 + 4x\)</p>
+            
+            <div class="mb-4">
+              <label for="exercise2-answer" class="block text-gray-700 font-medium mb-2">Votre réponse :</label>
+              <input type="text" id="exercise2-answer" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Exemple: x(x-1)(x-2)">
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+              <button id="check-exercise2" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                Vérifier ma réponse
+              </button>
+              <button id="show-solution2" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors">
+                Voir la solution
+              </button>
+            </div>
+            
+            <div id="feedback-exercise2" class="mt-4 p-4 rounded-lg hidden"></div>
+            
+            <div id="solution-exercise2" class="solution mt-4 p-4 bg-gray-100 rounded-lg">
+              <h4 class="font-semibold text-gray-800 mb-2">Solution :</h4>
+              <p>\(P(x) = x^3 - 4x^2 + 4x\)</p>
+              <p>Factorisation par \(x\) :</p>
+              <p>\(P(x) = x(x^2 - 4x + 4)\)</p>
+              <p>Reconnaître l'identité remarquable \((x - 2)^2 = x^2 - 4x + 4\) :</p>
+              <p>\(P(x) = x(x - 2)^2\)</p>
+              <p class="mt-2 text-green-700 font-medium">La réponse correcte est : \(x(x - 2)^2\)</p>
+            </div>
+          </div>
+          
+          <!-- Exercise 3 -->
+          <div class="exercise-card bg-purple-50 rounded-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-purple-800 mb-4">Exercice 3: Division euclidienne</h3>
+            <p class="text-gray-700 mb-4">Effectuez la division euclidienne du polynôme \(P(x) = x^3 - 3x^2 + 2x - 5\) par \(D(x) = x - 2\) et donnez le quotient et le reste.</p>
+            
+            <div class="mb-4">
+              <label for="exercise3-answer-quotient" class="block text-gray-700 font-medium mb-2">Quotient Q(x) :</label>
+              <input type="text" id="exercise3-answer-quotient" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Exemple: x^2 + 2x + 1">
+            </div>
+            
+            <div class="mb-4">
+              <label for="exercise3-answer-remainder" class="block text-gray-700 font-medium mb-2">Reste R :</label>
+              <input type="text" id="exercise3-answer-remainder" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Exemple: 3">
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+              <button id="check-exercise3" class="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                Vérifier ma réponse
+              </button>
+              <button id="show-solution3" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors">
+                Voir la solution
+              </button>
+            </div>
+            
+            <div id="feedback-exercise3" class="mt-4 p-4 rounded-lg hidden"></div>
+            
+            <div id="solution-exercise3" class="solution mt-4 p-4 bg-gray-100 rounded-lg">
+              <h4 class="font-semibold text-gray-800 mb-2">Solution :</h4>
+              <p>Division de \(P(x) = x^3 - 3x^2 + 2x - 5\) par \(D(x) = x - 2\) :</p>
+              
+              <div class="mt-3">
+                <p>Étape 1: \(x^3 \div x = x^2\)</p>
+                <p>Étape 2: \(x^2 \times (x - 2) = x^3 - 2x^2\)</p>
+                <p>Étape 3: \(x^3 - 3x^2 - (x^3 - 2x^2) = -x^2 + 2x - 5\)</p>
+                <p>Étape 4: \(-x^2 \div x = -x\)</p>
+                <p>Étape 5: \(-x \times (x - 2) = -x^2 + 2x\)</p>
+                <p>Étape 6: \(-x^2 + 2x - 5 - (-x^2 + 2x) = -5\)</p>
+              </div>
+              
+              <p class="mt-3">Donc \(P(x) = (x - 2)(x^2 - x) + (-5)\)</p>
+              <p>Quotient: \(Q(x) = x^2 - x\)</p>
+              <p>Reste: \(R = -5\)</p>
+              
+              <p class="mt-2 text-purple-700 font-medium">La réponse correcte est : Quotient = \(x^2 - x\) et Reste = \(-5\)</p>
+            </div>
+          </div>
+          
+          <!-- Exercise 4 -->
+          <div class="exercise-card bg-yellow-50 rounded-xl p-6">
+            <h3 class="text-xl font-semibold text-yellow-800 mb-4">Exercice 4: Racines d'un polynôme</h3>
+            <p class="text-gray-700 mb-4">Trouvez les racines du polynôme suivant :</p>
+            <p class="text-gray-800 font-medium mb-4">\(P(x) = x^3 - 6x^2 + 11x - 6\)</p>
+            
+            <div class="mb-4">
+              <label for="exercise4-answer" class="block text-gray-700 font-medium mb-2">Racines (séparées par des virgules) :</label>
+              <input type="text" id="exercise4-answer" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="Exemple: 1, 2, 3">
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+              <button id="check-exercise4" class="bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                Vérifier ma réponse
+              </button>
+              <button id="show-solution4" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors">
+                Voir la solution
+              </button>
+            </div>
+            
+            <div id="feedback-exercise4" class="mt-4 p-4 rounded-lg hidden"></div>
+            
+            <div id="solution-exercise4" class="solution mt-4 p-4 bg-gray-100 rounded-lg">
+              <h4 class="font-semibold text-gray-800 mb-2">Solution :</h4>
+              <p>Pour trouver les racines, nous allons essayer de factoriser le polynôme.</p>
+              <p>Essayons de trouver une racine en testant quelques valeurs simples :</p>
+              <p>\(P(1) = 1 - 6 + 11 - 6 = 0\)</p>
+              <p>Donc \(x = 1\) est une racine et \((x - 1)\) est un facteur.</p>
+              <p>Divisons \(P(x)\) par \((x - 1)\) :</p>
+              <p>\(P(x) = (x - 1)(x^2 - 5x + 6)\)</p>
+              <p>Factorisons \(x^2 - 5x + 6\) :</p>
+              <p>\(x^2 - 5x + 6 = (x - 2)(x - 3)\)</p>
+              <p>Donc \(P(x) = (x - 1)(x - 2)(x - 3)\)</p>
+              <p>Les racines sont \(x = 1\), \(x = 2\) et \(x = 3\).</p>
+              <p class="mt-2 text-yellow-700 font-medium">La réponse correcte est : 1, 2, 3</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-gray-800 text-white rounded-xl p-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h3 class="text-xl font-bold">Programme de Mathématiques</h3>
+          <p class="text-gray-300">Première D - Cameroun</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="../index.html" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg flex items-center transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Retour à l'accueil
+          </a>
+          <button class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg flex items-center transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Aide
+          </button>
+        </div>
+      </div>
+      <div class="mt-6 pt-6 border-t border-gray-700 text-center text-gray-400">
+        <p>© 2023 Programme de Mathématiques - Première D Cameroun - Tous droits réservés</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hide all solutions initially
+      document.querySelectorAll('.solution').forEach(solution => {
+        solution.style.maxHeight = '0';
+      });
+      
+      // Exercise 1 - Addition of polynomials
+      document.getElementById('check-exercise1').addEventListener('click', function() {
+        const userAnswer = document.getElementById('exercise1-answer').value.trim().toLowerCase();
+        const correctAnswer = "x^3 - 2x^2 - 4";
+        const alternativeAnswers = ["x^3-2x^2-4", "x³-2x²-4"];
+        
+        const feedback = document.getElementById('feedback-exercise1');
+        feedback.classList.remove('hidden', 'bg-green-100', 'bg-red-100');
+        
+        if (userAnswer === correctAnswer || alternativeAnswers.includes(userAnswer)) {
+          feedback.classList.add('bg-green-100');
+          feedback.innerHTML = '<p class="text-green-700 font-medium">✓ Correct ! Excellent travail.</p>';
+          document.getElementById('exercise1-answer').classList.add('correct-answer');
+          document.getElementById('exercise1-answer').classList.remove('incorrect-answer');
+        } else {
+          feedback.classList.add('bg-red-100');
+          feedback.innerHTML = '<p class="text-red-700 font-medium">✗ Incorrect. Essayez encore ou consultez la solution.</p>';
+          document.getElementById('exercise1-answer').classList.add('incorrect-answer');
+          document.getElementById('exercise1-answer').classList.remove('correct-answer');
+        }
+      });
+      
+      document.getElementById('show-solution1').addEventListener('click', function() {
+        const solution = document.getElementById('solution-exercise1');
+        solution.classList.toggle('show');
+      });
+      
+      // Exercise 2 - Factorization
+      document.getElementById('check-exercise2').addEventListener('click', function() {
+        const userAnswer = document.getElementById('exercise2-answer').value.trim().toLowerCase();
+        const correctAnswers = ["x(x-2)^2", "x(x-2)(x-2)", "x(x-2)²", "x(x-2)*(x-2)"];
+        
+        const feedback = document.getElementById('feedback-exercise2');
+        feedback.classList.remove('hidden', 'bg-green-100', 'bg-red-100');
+        
+        if (correctAnswers.some(answer => userAnswer === answer || userAnswer.replace(/\s+/g, '') === answer.replace(/\s+/g, ''))) {
+          feedback.classList.add('bg-green-100');
+          feedback.innerHTML = '<p class="text-green-700 font-medium">✓ Correct ! Très bien.</p>';
+          document.getElementById('exercise2-answer').classList.add('correct-answer');
+          document.getElementById('exercise2-answer').classList.remove('incorrect-answer');
+        } else {
+          feedback.classList.add('bg-red-100');
+          feedback.innerHTML = '<p class="text-red-700 font-medium">✗ Incorrect. Vérifiez votre factorisation.</p>';
+          document.getElementById('exercise2-answer').classList.add('incorrect-answer');
+          document.getElementById('exercise2-answer').classList.remove('correct-answer');
+        }
+      });
+      
+      document.getElementById('show-solution2').addEventListener('click', function() {
+        const solution = document.getElementById('solution-exercise2');
+        solution.classList.toggle('show');
+      });
+      
+      // Exercise 3 - Euclidean division
+      document.getElementById('check-exercise3').addEventListener('click', function() {
+        const userQuotient = document.getElementById('exercise3-answer-quotient').value.trim().toLowerCase();
+        const userRemainder = document.getElementById('exercise3-answer-remainder').value.trim().toLowerCase();
+        
+        const correctQuotient = "x^2-x";
+        const correctRemainder = "-5";
+        
+        const alternativeQuotients = ["x²-x", "x^2 - x", "x² - x"];
+        const alternativeRemainders = ["-5", "- 5"];
+        
+        const feedback = document.getElementById('feedback-exercise3');
+        feedback.classList.remove('hidden', 'bg-green-100', 'bg-red-100', 'bg-yellow-100');
+        
+        const quotientCorrect = alternativeQuotients.includes(userQuotient) || userQuotient === correctQuotient;
+        const remainderCorrect = alternativeRemainders.includes(userRemainder) || userRemainder === correctRemainder;
+        
+        if (quotientCorrect && remainderCorrect) {
+          feedback.classList.add('bg-green-100');
+          feedback.innerHTML = '<p class="text-green-700 font-medium">✓ Correct ! Parfait.</p>';
+          document.getElementById('exercise3-answer-quotient').classList.add('correct-answer');
+          document.getElementById('exercise3-answer-remainder').classList.add('correct-answer');
+          document.getElementById('exercise3-answer-quotient').classList.remove('incorrect-answer');
+          document.getElementById('exercise3-answer-remainder').classList.remove('incorrect-answer');
+        } else if (quotientCorrect || remainderCorrect) {
+          feedback.classList.add('bg-yellow-100');
+          feedback.innerHTML = '<p class="text-yellow-700 font-medium">⚠ Partiellement correct. Vérifiez vos calculs.</p>';
+          
+          if (quotientCorrect) {
+            document.getElementById('exercise3-answer-quotient').classList.add('correct-answer');
+            document.getElementById('exercise3-answer-quotient').classList.remove('incorrect-answer');
+            document.getElementById('exercise3-answer-remainder').classList.add('incorrect-answer');
+            document.getElementById('exercise3-answer-remainder').classList.remove('correct-answer');
+          } else {
+            document.getElementById('exercise3-answer-remainder').classList.add('correct-answer');
+            document.getElementById('exercise3-answer-remainder').classList.remove('incorrect-answer');
+            document.getElementById('exercise3-answer-quotient').classList.add('incorrect-answer');
+            document.getElementById('exercise3-answer-quotient').classList.remove('correct-answer');
+          }
+        } else {
+          feedback.classList.add('bg-red-100');
+          feedback.innerHTML = '<p class="text-red-700 font-medium">✗ Incorrect. Revérifiez votre division euclidienne.</p>';
+          document.getElementById('exercise3-answer-quotient').classList.add('incorrect-answer');
+          document.getElementById('exercise3-answer-remainder').classList.add('incorrect-answer');
+          document.getElementById('exercise3-answer-quotient').classList.remove('correct-answer');
+          document.getElementById('exercise3-answer-remainder').classList.remove('correct-answer');
+        }
+      });
+      
+      document.getElementById('show-solution3').addEventListener('click', function() {
+        const solution = document.getElementById('solution-exercise3');
+        solution.classList.toggle('show');
+      });
+      
+      // Exercise 4 - Roots of a polynomial
+      document.getElementById('check-exercise4').addEventListener('click', function() {
+        const userAnswer = document.getElementById('exercise4-answer').value.trim().toLowerCase();
+        
+        // Normalize answers by removing spaces and sorting
+        const normalizeAnswer = (answer) => {
+          return answer.split(',')
+            .map(x => x.trim())
+            .filter(x => x !== '')
+            .sort()
+            .join(',');
+        };
+        
+        const normalizedUserAnswer = normalizeAnswer(userAnswer);
+        const correctAnswer = "1,2,3";
+        
+        const feedback = document.getElementById('feedback-exercise4');
+        feedback.classList.remove('hidden', 'bg-green-100', 'bg-red-100');
+        
+        if (normalizedUserAnswer === correctAnswer) {
+          feedback.classList.add('bg-green-100');
+          feedback.innerHTML = '<p class="text-green-700 font-medium">✓ Correct ! Excellent travail.</p>';
+          document.getElementById('exercise4-answer').classList.add('correct-answer');
+          document.getElementById('exercise4-answer').classList.remove('incorrect-answer');
+        } else {
+          feedback.classList.add('bg-red-100');
+          feedback.innerHTML = '<p class="text-red-700 font-medium">✗ Incorrect. Vérifiez vos calculs pour trouver toutes les racines.</p>';
+          document.getElementById('exercise4-answer').classList.add('incorrect-answer');
+          document.getElementById('exercise4-answer').classList.remove('correct-answer');
+        }
+      });
+      
+      document.getElementById('show-solution4').addEventListener('click', function() {
+        const solution = document.getElementById('solution-exercise4');
+        solution.classList.toggle('show');
+      });
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962389c25134691a',t:'MTc1MzAyNTgyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
 
