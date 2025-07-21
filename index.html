@@ -1,442 +1,1220 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programme de Mathématiques - Première D Cameroun</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-      min-height: 100vh;
-    }
-    .chapter-card {
-      transition: all 0.3s ease;
-    }
-    .chapter-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    .chapter-icon {
-      transition: all 0.3s ease;
-    }
-    .chapter-card:hover .chapter-icon {
-      transform: scale(1.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours de Mathématiques - Première D Cameroun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+        }
+        
+        .formula {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4f46e5;
+            padding: 0.75rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .example {
+            background-color: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 0.75rem;
+            margin: 1rem 0;
+        }
+        
+        .warning {
+            background-color: #fff7ed;
+            border-left: 4px solid #ea580c;
+            padding: 0.75rem;
+            margin: 1rem 0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .math-symbol {
+            font-family: 'Times New Roman', serif;
+        }
+    </style>
 </head>
-<body class="p-4 md:p-8">
-  <div class="max-w-6xl mx-auto">
-    <!-- Header -->
-    <header class="bg-gradient-to-r from-green-600 to-blue-700 rounded-xl shadow-lg p-6 mb-8">
-      <div class="flex flex-col md:flex-row items-center justify-between">
-        <div class="text-center md:text-left mb-4 md:mb-0">
-          <h1 class="text-3xl md:text-4xl font-bold text-white">Programme de Mathématiques</h1>
-          <p class="text-blue-100 mt-2 text-lg">Première D - Cameroun</p>
+<body>
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center">Cours de Mathématiques</h1>
+            <p class="text-center text-xl mt-2">Première D - Préparation au Probatoire</p>
         </div>
-        <div class="flex items-center space-x-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-        </div>
-      </div>
     </header>
 
-    <!-- Introduction -->
-    <div class="bg-white rounded-xl shadow-md p-6 mb-8">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Bienvenue sur votre plateforme d'apprentissage</h2>
-      <p class="text-gray-600">
-        Cette plateforme vous accompagne dans votre apprentissage des mathématiques en Première D au Cameroun. 
-        Explorez les différents chapitres ci-dessous pour accéder aux cours, exercices et ressources complémentaires.
-      </p>
-    </div>
-
-    <!-- Chapters Grid -->
-    <div class="mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-        Algèbre
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Chapter 1 -->
-        <a href="chapitres/chapitre1.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-blue-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 1</h3>
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-indigo-700 mb-4">Comment utiliser ce cours</h2>
+            <p class="mb-4">Ce cours couvre les principaux thèmes du programme de mathématiques de Première D au Cameroun pour vous aider à réussir votre probatoire.</p>
+            <div class="flex flex-wrap gap-4 mt-6">
+                <div class="bg-indigo-100 p-4 rounded-lg flex-1 min-w-[250px]">
+                    <h3 class="font-semibold text-indigo-700">📚 Théorie</h3>
+                    <p>Concepts fondamentaux expliqués simplement</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded-lg flex-1 min-w-[250px]">
+                    <h3 class="font-semibold text-green-700">✏️ Exemples</h3>
+                    <p>Applications pratiques des concepts</p>
+                </div>
+                <div class="bg-amber-100 p-4 rounded-lg flex-1 min-w-[250px]">
+                    <h3 class="font-semibold text-amber-700">🔍 Exercices</h3>
+                    <p>Problèmes avec solutions détaillées</p>
+                </div>
             </div>
-            <h4 class="text-lg font-medium text-blue-700 mb-2">Polynômes</h4>
-            <p class="text-gray-600">Opérations sur les polynômes, factorisation, division euclidienne.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-blue-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Chapter 2 -->
-        <a href="chapitres/chapitre2.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-green-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 2</h3>
-            </div>
-            <h4 class="text-lg font-medium text-green-700 mb-2">Équations et Inéquations</h4>
-            <p class="text-gray-600">Résolution d'équations et inéquations du premier et second degré.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-green-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Chapter 3 -->
-        <a href="chapitres/chapitre3.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-purple-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 3</h3>
-            </div>
-            <h4 class="text-lg font-medium text-purple-700 mb-2">Suites Numériques</h4>
-            <p class="text-gray-600">Suites arithmétiques, géométriques et récurrentes.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-purple-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-        Analyse
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Chapter 4 -->
-        <a href="chapitres/chapitre4.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-red-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 4</h3>
-            </div>
-            <h4 class="text-lg font-medium text-red-700 mb-2">Limites et Continuité</h4>
-            <p class="text-gray-600">Étude des limites et continuité des fonctions.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-red-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Chapter 5 -->
-        <a href="chapitres/chapitre5.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-yellow-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 5</h3>
-            </div>
-            <h4 class="text-lg font-medium text-yellow-700 mb-2">Dérivation</h4>
-            <p class="text-gray-600">Calcul de dérivées et applications aux variations de fonctions.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-yellow-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Chapter 6 -->
-        <a href="chapitres/chapitre6.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-indigo-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 6</h3>
-            </div>
-            <h4 class="text-lg font-medium text-indigo-700 mb-2">Fonctions Usuelles</h4>
-            <p class="text-gray-600">Étude des fonctions logarithmes, exponentielles et puissances.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-indigo-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-        </svg>
-        Géométrie
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Chapter 7 -->
-        <a href="chapitres/chapitre7.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-pink-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 7</h3>
-            </div>
-            <h4 class="text-lg font-medium text-pink-700 mb-2">Géométrie Analytique</h4>
-            <p class="text-gray-600">Vecteurs, droites et plans dans l'espace.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-pink-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Chapter 8 -->
-        <a href="chapitres/chapitre8.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-teal-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 8</h3>
-            </div>
-            <h4 class="text-lg font-medium text-teal-700 mb-2">Produit Scalaire</h4>
-            <p class="text-gray-600">Définition, propriétés et applications du produit scalaire.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-teal-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Chapter 9 -->
-        <a href="chapitres/chapitre9.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-orange-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 9</h3>
-            </div>
-            <h4 class="text-lg font-medium text-orange-700 mb-2">Trigonométrie</h4>
-            <p class="text-gray-600">Fonctions trigonométriques et équations trigonométriques.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-orange-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-        Statistiques et Probabilités
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Chapter 10 -->
-        <a href="chapitres/chapitre10.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-blue-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 10</h3>
-            </div>
-            <h4 class="text-lg font-medium text-blue-700 mb-2">Statistiques Descriptives</h4>
-            <p class="text-gray-600">Représentation et analyse de données statistiques.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-blue-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Chapter 11 -->
-        <a href="chapitres/chapitre11.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-green-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 11</h3>
-            </div>
-            <h4 class="text-lg font-medium text-green-700 mb-2">Probabilités</h4>
-            <p class="text-gray-600">Calcul de probabilités et variables aléatoires.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-green-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Chapter 12 -->
-        <a href="chapitres/chapitre12.html" class="chapter-card bg-white rounded-xl shadow-md overflow-hidden hover:bg-blue-50">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="bg-purple-100 rounded-full p-3 mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600 chapter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800">Chapitre 12</h3>
-            </div>
-            <h4 class="text-lg font-medium text-purple-700 mb-2">Dénombrement</h4>
-            <p class="text-gray-600">Arrangements, permutations et combinaisons.</p>
-            <div class="mt-4 flex justify-end">
-              <span class="text-purple-600 font-medium flex items-center">
-                Explorer
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="mt-12 bg-gray-800 text-white rounded-xl p-6">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <h3 class="text-xl font-bold">Programme de Mathématiques</h3>
-          <p class="text-gray-300">Première D - Cameroun</p>
         </div>
-        <div class="flex space-x-4">
-          <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg flex items-center transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            Aide
-          </button>
-          <button class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg flex items-center transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            Contact
-          </button>
+
+        <!-- Navigation des chapitres -->
+        <div class="mb-8">
+            <div class="bg-gray-100 rounded-lg p-4">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Chapitres du cours</h2>
+                <div class="flex flex-wrap gap-2" id="tabs">
+                    <button class="tab-button bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition" data-tab="fonctions">Fonctions</button>
+                    <button class="tab-button bg-white text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-200 transition" data-tab="derivees">Dérivées</button>
+                    <button class="tab-button bg-white text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-200 transition" data-tab="suites">Suites</button>
+                    <button class="tab-button bg-white text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-200 transition" data-tab="geometrie">Géométrie</button>
+                    <button class="tab-button bg-white text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-200 transition" data-tab="probabilites">Probabilités</button>
+                    <button class="tab-button bg-white text-indigo-600 px-4 py-2 rounded-md hover:bg-gray-200 transition" data-tab="statistiques">Statistiques</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="mt-6 pt-6 border-t border-gray-700 text-center text-gray-400">
-        <p>© 2023 Programme de Mathématiques - Première D Cameroun - Tous droits réservés</p>
-      </div>
-    </footer>
-  </div>
 
-  <script>
-    // Animation pour les cartes au chargement de la page
-    document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.chapter-card');
-      cards.forEach((card, index) => {
-        setTimeout(() => {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(20px)';
-          card.style.transition = 'all 0.5s ease';
-          
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 100);
-        }, index * 100);
-      });
-    });
-  </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96237b2275ad8e38',t:'MTc1MzAyNTIyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
-
+        <!-- Contenu des chapitres -->
+        <div id="tab-contents">
+            <!-- Fonctions -->
+            <div id="fonctions" class="tab-content active bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4">Chapitre 1: Fonctions Numériques</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">1.1 Définition et Généralités</h3>
+                    <p class="mb-3">Une fonction numérique <span class="math-symbol">f</span> définie sur un ensemble <span class="math-symbol">D</span> associe à chaque élément <span class="math-symbol">x</span> de <span class="math-symbol">D</span> un unique nombre réel noté <span class="math-symbol">f(x)</span>.</p>
+                    
+                    <div class="formula">
+                        <p><strong>Notation:</strong> <span class="math-symbol">f : D → ℝ</span><br>
+                        <span class="math-symbol">x ↦ f(x)</span></p>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Domaine de définition</h4>
+                    <p class="mb-3">Le domaine de définition d'une fonction est l'ensemble des valeurs pour lesquelles la fonction est définie.</p>
+                    
+                    <div class="example">
+                        <p><strong>Exemple:</strong> Pour la fonction <span class="math-symbol">f(x) = 1/x</span>, le domaine de définition est <span class="math-symbol">D = ℝ\{0}</span> (tous les réels sauf 0).</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">1.2 Fonctions de Référence</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Fonction affine</h4>
+                            <p><span class="math-symbol">f(x) = ax + b</span> où <span class="math-symbol">a</span> et <span class="math-symbol">b</span> sont des constantes</p>
+                            <p class="mt-2">Représentation: une droite</p>
+                            <p class="mt-2">Domaine: <span class="math-symbol">ℝ</span></p>
+                            <svg width="150" height="100" viewBox="-5 -5 10 10" class="mx-auto mt-2">
+                                <line x1="-5" y1="0" x2="5" y2="0" stroke="black" stroke-width="0.1"/>
+                                <line x1="0" y1="-5" x2="0" y2="5" stroke="black" stroke-width="0.1"/>
+                                <line x1="-5" y1="-2" x2="5" y2="3" stroke="blue" stroke-width="0.2"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Fonction carrée</h4>
+                            <p><span class="math-symbol">f(x) = x²</span></p>
+                            <p class="mt-2">Représentation: une parabole</p>
+                            <p class="mt-2">Domaine: <span class="math-symbol">ℝ</span></p>
+                            <svg width="150" height="100" viewBox="-5 -1 10 10" class="mx-auto mt-2">
+                                <line x1="-5" y1="0" x2="5" y2="0" stroke="black" stroke-width="0.1"/>
+                                <line x1="0" y1="-1" x2="0" y2="9" stroke="black" stroke-width="0.1"/>
+                                <path d="M-3,9 Q0,0 3,9" fill="none" stroke="blue" stroke-width="0.2"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Fonction inverse</h4>
+                            <p><span class="math-symbol">f(x) = 1/x</span></p>
+                            <p class="mt-2">Représentation: une hyperbole</p>
+                            <p class="mt-2">Domaine: <span class="math-symbol">ℝ\{0}</span></p>
+                            <svg width="150" height="100" viewBox="-5 -5 10 10" class="mx-auto mt-2">
+                                <line x1="-5" y1="0" x2="5" y2="0" stroke="black" stroke-width="0.1"/>
+                                <line x1="0" y1="-5" x2="0" y2="5" stroke="black" stroke-width="0.1"/>
+                                <path d="M-5,-1 C-3,-3 -1,-5 -0.5,-5 M0.5,5 C1,5 3,3 5,1" fill="none" stroke="blue" stroke-width="0.2"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Fonction racine carrée</h4>
+                            <p><span class="math-symbol">f(x) = √x</span></p>
+                            <p class="mt-2">Domaine: <span class="math-symbol">ℝ⁺</span> (réels positifs)</p>
+                            <svg width="150" height="100" viewBox="-1 -1 6 6" class="mx-auto mt-2">
+                                <line x1="-1" y1="0" x2="5" y2="0" stroke="black" stroke-width="0.1"/>
+                                <line x1="0" y1="-1" x2="0" y2="5" stroke="black" stroke-width="0.1"/>
+                                <path d="M0,0 C1,0 4,2 5,5" fill="none" stroke="blue" stroke-width="0.2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">1.3 Limites et Continuité</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Limites</h4>
+                    <p class="mb-3">La limite d'une fonction <span class="math-symbol">f</span> en un point <span class="math-symbol">a</span> est la valeur vers laquelle tend <span class="math-symbol">f(x)</span> lorsque <span class="math-symbol">x</span> se rapproche de <span class="math-symbol">a</span>.</p>
+                    
+                    <div class="formula">
+                        <p><strong>Notation:</strong> <span class="math-symbol">lim<sub>x→a</sub> f(x) = L</span></p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Limites usuelles</h4>
+                            <ul class="list-disc pl-5">
+                                <li><span class="math-symbol">lim<sub>x→∞</sub> 1/x = 0</span></li>
+                                <li><span class="math-symbol">lim<sub>x→∞</sub> x<sup>n</sup>/e<sup>x</sup> = 0</span> (pour tout n)</li>
+                                <li><span class="math-symbol">lim<sub>x→0</sub> sin(x)/x = 1</span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Formes indéterminées</h4>
+                            <ul class="list-disc pl-5">
+                                <li><span class="math-symbol">0/0</span></li>
+                                <li><span class="math-symbol">∞/∞</span></li>
+                                <li><span class="math-symbol">0×∞</span></li>
+                                <li><span class="math-symbol">∞-∞</span></li>
+                                <li><span class="math-symbol">1<sup>∞</sup></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Continuité</h4>
+                    <p class="mb-3">Une fonction <span class="math-symbol">f</span> est continue en un point <span class="math-symbol">a</span> si <span class="math-symbol">lim<sub>x→a</sub> f(x) = f(a)</span>.</p>
+                    <p class="mb-3">Une fonction est continue sur un intervalle si elle est continue en chaque point de cet intervalle.</p>
+                    
+                    <div class="example">
+                        <p><strong>Exemple:</strong> La fonction <span class="math-symbol">f(x) = x²</span> est continue sur <span class="math-symbol">ℝ</span>.</p>
+                        <p>La fonction <span class="math-symbol">g(x) = 1/x</span> est continue sur <span class="math-symbol">ℝ\{0}</span>.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">1.4 Exercices</h3>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold mb-2">Exercice 1: Domaine de définition</h4>
+                        <p>Déterminer le domaine de définition des fonctions suivantes:</p>
+                        <p>a) <span class="math-symbol">f(x) = √(x-1)</span></p>
+                        <p>b) <span class="math-symbol">g(x) = 1/(x²-4)</span></p>
+                        <p>c) <span class="math-symbol">h(x) = ln(2x+3)</span></p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution1')">Voir la solution</button>
+                        
+                        <div id="solution1" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solutions:</strong></p>
+                            <p>a) Pour <span class="math-symbol">f(x) = √(x-1)</span>, il faut que <span class="math-symbol">x-1 ≥ 0</span> donc <span class="math-symbol">x ≥ 1</span>.<br>
+                            Domaine: <span class="math-symbol">D<sub>f</sub> = [1, +∞[</span></p>
+                            
+                            <p>b) Pour <span class="math-symbol">g(x) = 1/(x²-4)</span>, il faut que <span class="math-symbol">x² - 4 ≠ 0</span> donc <span class="math-symbol">x ≠ -2</span> et <span class="math-symbol">x ≠ 2</span>.<br>
+                            Domaine: <span class="math-symbol">D<sub>g</sub> = ℝ\{-2, 2}</span></p>
+                            
+                            <p>c) Pour <span class="math-symbol">h(x) = ln(2x+3)</span>, il faut que <span class="math-symbol">2x+3 > 0</span> donc <span class="math-symbol">x > -3/2</span>.<br>
+                            Domaine: <span class="math-symbol">D<sub>h</sub> = ]-3/2, +∞[</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Exercice 2: Limites</h4>
+                        <p>Calculer les limites suivantes:</p>
+                        <p>a) <span class="math-symbol">lim<sub>x→+∞</sub> (3x² - 2x + 1)/(x² + 5)</span></p>
+                        <p>b) <span class="math-symbol">lim<sub>x→0</sub> (e<sup>x</sup> - 1)/x</span></p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution2')">Voir la solution</button>
+                        
+                        <div id="solution2" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solutions:</strong></p>
+                            <p>a) <span class="math-symbol">lim<sub>x→+∞</sub> (3x² - 2x + 1)/(x² + 5)</span></p>
+                            <p>Divisons le numérateur et le dénominateur par x² :</p>
+                            <p><span class="math-symbol">lim<sub>x→+∞</sub> (3 - 2/x + 1/x²)/(1 + 5/x²) = 3/1 = 3</span></p>
+                            
+                            <p>b) <span class="math-symbol">lim<sub>x→0</sub> (e<sup>x</sup> - 1)/x</span></p>
+                            <p>C'est la définition de la dérivée de la fonction exponentielle en 0.</p>
+                            <p><span class="math-symbol">lim<sub>x→0</sub> (e<sup>x</sup> - 1)/x = 1</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dérivées -->
+            <div id="derivees" class="tab-content bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4">Chapitre 2: Dérivation</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">2.1 Définition de la Dérivée</h3>
+                    <p class="mb-3">La dérivée d'une fonction <span class="math-symbol">f</span> en un point <span class="math-symbol">a</span> est définie par :</p>
+                    
+                    <div class="formula">
+                        <p><span class="math-symbol">f'(a) = lim<sub>h→0</sub> [f(a+h) - f(a)]/h</span></p>
+                    </div>
+                    
+                    <p class="mb-3">Géométriquement, la dérivée représente la pente de la tangente à la courbe au point d'abscisse <span class="math-symbol">a</span>.</p>
+                    
+                    <div class="example">
+                        <p><strong>Exemple:</strong> Pour <span class="math-symbol">f(x) = x²</span>, calculons <span class="math-symbol">f'(a)</span>.</p>
+                        <p><span class="math-symbol">f'(a) = lim<sub>h→0</sub> [(a+h)² - a²]/h</span></p>
+                        <p><span class="math-symbol">= lim<sub>h→0</sub> [a² + 2ah + h² - a²]/h</span></p>
+                        <p><span class="math-symbol">= lim<sub>h→0</sub> [2ah + h²]/h</span></p>
+                        <p><span class="math-symbol">= lim<sub>h→0</sub> [2a + h] = 2a</span></p>
+                        <p>Donc <span class="math-symbol">f'(x) = 2x</span></p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">2.2 Formules de Dérivation</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200">
+                            <thead>
+                                <tr>
+                                    <th class="py-2 px-4 border-b">Fonction</th>
+                                    <th class="py-2 px-4 border-b">Dérivée</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f(x) = k</span> (constante)</td>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f'(x) = 0</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f(x) = x^n</span></td>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f'(x) = n·x^(n-1)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f(x) = e^x</span></td>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f'(x) = e^x</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f(x) = ln(x)</span></td>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f'(x) = 1/x</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f(x) = sin(x)</span></td>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f'(x) = cos(x)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f(x) = cos(x)</span></td>
+                                    <td class="py-2 px-4 border-b"><span class="math-symbol">f'(x) = -sin(x)</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Règles de dérivation</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold mb-2">Somme</h5>
+                            <p><span class="math-symbol">(u + v)' = u' + v'</span></p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold mb-2">Produit</h5>
+                            <p><span class="math-symbol">(u × v)' = u' × v + u × v'</span></p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold mb-2">Quotient</h5>
+                            <p><span class="math-symbol">(u/v)' = (u' × v - u × v')/v²</span></p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold mb-2">Composée</h5>
+                            <p><span class="math-symbol">(f∘g)' = (f'∘g) × g'</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">2.3 Applications de la Dérivation</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Étude des variations</h4>
+                    <p class="mb-3">Si <span class="math-symbol">f'(x) > 0</span> sur un intervalle, alors <span class="math-symbol">f</span> est strictement croissante sur cet intervalle.</p>
+                    <p class="mb-3">Si <span class="math-symbol">f'(x) < 0</span> sur un intervalle, alors <span class="math-symbol">f</span> est strictement décroissante sur cet intervalle.</p>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Extrema</h4>
+                    <p class="mb-3">Si <span class="math-symbol">f'(a) = 0</span> ou si <span class="math-symbol">f'(a)</span> n'existe pas, alors <span class="math-symbol">a</span> est un point critique.</p>
+                    <p class="mb-3">Pour déterminer si un point critique est un maximum, un minimum ou un point d'inflexion, on peut utiliser le signe de la dérivée seconde <span class="math-symbol">f''(a)</span> :</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li>Si <span class="math-symbol">f''(a) < 0</span>, alors <span class="math-symbol">f(a)</span> est un maximum local.</li>
+                        <li>Si <span class="math-symbol">f''(a) > 0</span>, alors <span class="math-symbol">f(a)</span> est un minimum local.</li>
+                        <li>Si <span class="math-symbol">f''(a) = 0</span>, il faut faire une étude plus approfondie.</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">2.4 Exercices</h3>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold mb-2">Exercice 1: Calcul de dérivées</h4>
+                        <p>Calculer les dérivées des fonctions suivantes:</p>
+                        <p>a) <span class="math-symbol">f(x) = 3x⁴ - 2x² + 5x - 1</span></p>
+                        <p>b) <span class="math-symbol">g(x) = (x² + 1)/(x - 2)</span></p>
+                        <p>c) <span class="math-symbol">h(x) = x·e^x</span></p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution3')">Voir la solution</button>
+                        
+                        <div id="solution3" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solutions:</strong></p>
+                            <p>a) <span class="math-symbol">f'(x) = 12x³ - 4x + 5</span></p>
+                            
+                            <p>b) <span class="math-symbol">g(x) = (x² + 1)/(x - 2)</span></p>
+                            <p>Utilisons la formule de dérivation d'un quotient:</p>
+                            <p><span class="math-symbol">g'(x) = [(2x)(x-2) - (x²+1)(1)]/[(x-2)²]</span></p>
+                            <p><span class="math-symbol">= [2x² - 4x - x² - 1]/[(x-2)²]</span></p>
+                            <p><span class="math-symbol">= [x² - 4x - 1]/[(x-2)²]</span></p>
+                            
+                            <p>c) <span class="math-symbol">h(x) = x·e^x</span></p>
+                            <p>Utilisons la formule du produit:</p>
+                            <p><span class="math-symbol">h'(x) = 1·e^x + x·e^x = e^x(1+x)</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Exercice 2: Étude de fonction</h4>
+                        <p>Étudier les variations de la fonction <span class="math-symbol">f(x) = x³ - 3x² + 2</span> sur <span class="math-symbol">ℝ</span>.</p>
+                        <p>Déterminer les extrema et tracer la courbe.</p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution4')">Voir la solution</button>
+                        
+                        <div id="solution4" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solution:</strong></p>
+                            <p>Calculons la dérivée:</p>
+                            <p><span class="math-symbol">f'(x) = 3x² - 6x = 3x(x-2)</span></p>
+                            
+                            <p>Étudions le signe de <span class="math-symbol">f'(x)</span>:</p>
+                            <p><span class="math-symbol">f'(x) = 0</span> pour <span class="math-symbol">x = 0</span> ou <span class="math-symbol">x = 2</span></p>
+                            <p>- Pour <span class="math-symbol">x < 0</span>: <span class="math-symbol">f'(x) < 0</span>, donc <span class="math-symbol">f</span> est décroissante</p>
+                            <p>- Pour <span class="math-symbol">0 < x < 2</span>: <span class="math-symbol">f'(x) < 0</span>, donc <span class="math-symbol">f</span> est décroissante</p>
+                            <p>- Pour <span class="math-symbol">x > 2</span>: <span class="math-symbol">f'(x) > 0</span>, donc <span class="math-symbol">f</span> est croissante</p>
+                            
+                            <p>Calculons les valeurs aux points critiques:</p>
+                            <p><span class="math-symbol">f(0) = 2</span></p>
+                            <p><span class="math-symbol">f(2) = 2³ - 3·2² + 2 = 8 - 12 + 2 = -2</span></p>
+                            
+                            <p>Conclusion:</p>
+                            <p>- <span class="math-symbol">f</span> est décroissante sur <span class="math-symbol">]-∞, 2[</span></p>
+                            <p>- <span class="math-symbol">f</span> est croissante sur <span class="math-symbol">]2, +∞[</span></p>
+                            <p>- <span class="math-symbol">f(2) = -2</span> est un minimum global</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Suites -->
+            <div id="suites" class="tab-content bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4">Chapitre 3: Suites Numériques</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">3.1 Définition et Généralités</h3>
+                    <p class="mb-3">Une suite numérique est une fonction définie sur l'ensemble des entiers naturels <span class="math-symbol">ℕ</span> et à valeurs dans <span class="math-symbol">ℝ</span>.</p>
+                    
+                    <div class="formula">
+                        <p><strong>Notation:</strong> <span class="math-symbol">(u<sub>n</sub>)<sub>n∈ℕ</sub></span> ou simplement <span class="math-symbol">(u<sub>n</sub>)</span></p>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Modes de définition</h4>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li>Par une formule explicite: <span class="math-symbol">u<sub>n</sub> = f(n)</span></li>
+                        <li>Par récurrence: <span class="math-symbol">u<sub>0</sub></span> donné et <span class="math-symbol">u<sub>n+1</sub> = g(u<sub>n</sub>)</span></li>
+                    </ul>
+                    
+                    <div class="example">
+                        <p><strong>Exemple:</strong></p>
+                        <p>- Suite arithmétique: <span class="math-symbol">u<sub>n</sub> = u<sub>0</sub> + n·r</span> (formule explicite)</p>
+                        <p>- Suite géométrique: <span class="math-symbol">u<sub>n</sub> = u<sub>0</sub> × q<sup>n</sup></span> (formule explicite)</p>
+                        <p>- Suite de Fibonacci: <span class="math-symbol">u<sub>0</sub> = 0</span>, <span class="math-symbol">u<sub>1</sub> = 1</span> et <span class="math-symbol">u<sub>n+2</sub> = u<sub>n+1</sub> + u<sub>n</sub></span> (récurrence)</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">3.2 Suites Arithmétiques et Géométriques</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Suite arithmétique</h4>
+                            <p>Une suite <span class="math-symbol">(u<sub>n</sub>)</span> est arithmétique s'il existe un réel <span class="math-symbol">r</span> tel que:</p>
+                            <p><span class="math-symbol">u<sub>n+1</sub> - u<sub>n</sub> = r</span> pour tout <span class="math-symbol">n ∈ ℕ</span></p>
+                            <p class="mt-2"><strong>Formule explicite:</strong></p>
+                            <p><span class="math-symbol">u<sub>n</sub> = u<sub>0</sub> + n·r</span></p>
+                            <p class="mt-2"><strong>Somme des termes:</strong></p>
+                            <p><span class="math-symbol">S<sub>n</sub> = (n+1)·(u<sub>0</sub> + u<sub>n</sub>)/2</span></p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Suite géométrique</h4>
+                            <p>Une suite <span class="math-symbol">(u<sub>n</sub>)</span> est géométrique s'il existe un réel <span class="math-symbol">q</span> tel que:</p>
+                            <p><span class="math-symbol">u<sub>n+1</sub>/u<sub>n</sub> = q</span> pour tout <span class="math-symbol">n ∈ ℕ</span> et <span class="math-symbol">u<sub>n</sub> ≠ 0</span></p>
+                            <p class="mt-2"><strong>Formule explicite:</strong></p>
+                            <p><span class="math-symbol">u<sub>n</sub> = u<sub>0</sub> × q<sup>n</sup></span></p>
+                            <p class="mt-2"><strong>Somme des termes:</strong></p>
+                            <p><span class="math-symbol">S<sub>n</sub> = u<sub>0</sub>·(1-q<sup>n+1</sup>)/(1-q)</span> si <span class="math-symbol">q ≠ 1</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">3.3 Limites de Suites</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Définition</h4>
+                    <p class="mb-3">On dit qu'une suite <span class="math-symbol">(u<sub>n</sub>)</span> converge vers une limite <span class="math-symbol">l</span> si pour tout <span class="math-symbol">ε > 0</span>, il existe un rang <span class="math-symbol">N</span> tel que pour tout <span class="math-symbol">n ≥ N</span>, on a <span class="math-symbol">|u<sub>n</sub> - l| < ε</span>.</p>
+                    
+                    <div class="formula">
+                        <p><strong>Notation:</strong> <span class="math-symbol">lim<sub>n→+∞</sub> u<sub>n</sub> = l</span></p>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Théorèmes sur les limites</h4>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li>Si <span class="math-symbol">lim u<sub>n</sub> = l</span> et <span class="math-symbol">lim v<sub>n</sub> = m</span>, alors <span class="math-symbol">lim (u<sub>n</sub> + v<sub>n</sub>) = l + m</span></li>
+                        <li>Si <span class="math-symbol">lim u<sub>n</sub> = l</span> et <span class="math-symbol">lim v<sub>n</sub> = m</span>, alors <span class="math-symbol">lim (u<sub>n</sub> × v<sub>n</sub>) = l × m</span></li>
+                        <li>Si <span class="math-symbol">lim u<sub>n</sub> = l</span> et <span class="math-symbol">lim v<sub>n</sub> = m ≠ 0</span>, alors <span class="math-symbol">lim (u<sub>n</sub>/v<sub>n</sub>) = l/m</span></li>
+                    </ul>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Suites monotones et bornées</h4>
+                    <p class="mb-3">Une suite croissante et majorée converge vers sa borne supérieure.</p>
+                    <p class="mb-3">Une suite décroissante et minorée converge vers sa borne inférieure.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">3.4 Exercices</h3>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold mb-2">Exercice 1: Suites arithmétiques et géométriques</h4>
+                        <p>Soit <span class="math-symbol">(u<sub>n</sub>)</span> une suite arithmétique de premier terme <span class="math-symbol">u<sub>0</sub> = 3</span> et de raison <span class="math-symbol">r = 2</span>.</p>
+                        <p>a) Calculer <span class="math-symbol">u<sub>5</sub></span> et <span class="math-symbol">u<sub>10</sub></span>.</p>
+                        <p>b) Calculer la somme <span class="math-symbol">S = u<sub>0</sub> + u<sub>1</sub> + ... + u<sub>10</sub></span>.</p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution5')">Voir la solution</button>
+                        
+                        <div id="solution5" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solution:</strong></p>
+                            <p>a) Pour une suite arithmétique: <span class="math-symbol">u<sub>n</sub> = u<sub>0</sub> + n·r</span></p>
+                            <p><span class="math-symbol">u<sub>5</sub> = 3 + 5·2 = 3 + 10 = 13</span></p>
+                            <p><span class="math-symbol">u<sub>10</sub> = 3 + 10·2 = 3 + 20 = 23</span></p>
+                            
+                            <p>b) Pour la somme des termes d'une suite arithmétique:</p>
+                            <p><span class="math-symbol">S<sub>n</sub> = (n+1)·(u<sub>0</sub> + u<sub>n</sub>)/2</span></p>
+                            <p><span class="math-symbol">S = S<sub>10</sub> = (10+1)·(3 + 23)/2 = 11·26/2 = 143</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Exercice 2: Étude de convergence</h4>
+                        <p>Soit la suite <span class="math-symbol">(u<sub>n</sub>)</span> définie par <span class="math-symbol">u<sub>0</sub> = 1</span> et <span class="math-symbol">u<sub>n+1</sub> = (u<sub>n</sub> + 2)/3</span> pour <span class="math-symbol">n ≥ 0</span>.</p>
+                        <p>a) Montrer que la suite est croissante et majorée par 1.</p>
+                        <p>b) En déduire que la suite converge et déterminer sa limite.</p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution6')">Voir la solution</button>
+                        
+                        <div id="solution6" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solution:</strong></p>
+                            <p>a) Montrons par récurrence que <span class="math-symbol">u<sub>n</sub> ≤ 1</span> pour tout <span class="math-symbol">n</span>.</p>
+                            <p>- Pour <span class="math-symbol">n = 0</span>: <span class="math-symbol">u<sub>0</sub> = 1 ≤ 1</span> (vrai)</p>
+                            <p>- Supposons que <span class="math-symbol">u<sub>n</sub> ≤ 1</span>. Alors:</p>
+                            <p><span class="math-symbol">u<sub>n+1</sub> = (u<sub>n</sub> + 2)/3 ≤ (1 + 2)/3 = 1</span></p>
+                            <p>Donc <span class="math-symbol">u<sub>n</sub> ≤ 1</span> pour tout <span class="math-symbol">n</span>.</p>
+                            
+                            <p>Montrons maintenant que la suite est croissante.</p>
+                            <p>Calculons <span class="math-symbol">u<sub>n+1</sub> - u<sub>n</sub></span>:</p>
+                            <p><span class="math-symbol">u<sub>n+1</sub> - u<sub>n</sub> = (u<sub>n</sub> + 2)/3 - u<sub>n</sub> = (u<sub>n</sub> + 2 - 3u<sub>n</sub>)/3 = (2 - 2u<sub>n</sub>)/3</span></p>
+                            <p>Comme <span class="math-symbol">u<sub>n</sub> ≤ 1</span>, on a <span class="math-symbol">2 - 2u<sub>n</sub> ≥ 0</span>, donc <span class="math-symbol">u<sub>n+1</sub> - u<sub>n</sub> ≥ 0</span>.</p>
+                            <p>La suite est donc croissante.</p>
+                            
+                            <p>b) Comme la suite est croissante et majorée, elle converge vers une limite <span class="math-symbol">l</span>.</p>
+                            <p>Cette limite vérifie <span class="math-symbol">l = (l + 2)/3</span>, donc <span class="math-symbol">3l = l + 2</span>, ce qui donne <span class="math-symbol">2l = 2</span>, soit <span class="math-symbol">l = 1</span>.</p>
+                            <p>La suite converge donc vers 1.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Géométrie -->
+            <div id="geometrie" class="tab-content bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4">Chapitre 4: Géométrie dans l'Espace</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">4.1 Vecteurs de l'Espace</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Définition et opérations</h4>
+                    <p class="mb-3">Un vecteur de l'espace est défini par ses trois composantes dans un repère orthonormé <span class="math-symbol">(O, \vec{i}, \vec{j}, \vec{k})</span>.</p>
+                    <p class="mb-3">Si <span class="math-symbol">\vec{u} = (x, y, z)</span> et <span class="math-symbol">\vec{v} = (x', y', z')</span>, alors:</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li><span class="math-symbol">\vec{u} + \vec{v} = (x+x', y+y', z+z')</span></li>
+                        <li><span class="math-symbol">\lambda \vec{u} = (\lambda x, \lambda y, \lambda z)</span></li>
+                    </ul>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Produit scalaire</h4>
+                    <p class="mb-3">Le produit scalaire de deux vecteurs <span class="math-symbol">\vec{u} = (x, y, z)</span> et <span class="math-symbol">\vec{v} = (x', y', z')</span> est défini par:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">\vec{u} \cdot \vec{v} = x·x' + y·y' + z·z'</span></p>
+                    </div>
+                    
+                    <p class="mb-3">Propriétés du produit scalaire:</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li><span class="math-symbol">\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}</span> (commutativité)</li>
+                        <li><span class="math-symbol">\vec{u} \cdot \vec{u} = ||\vec{u}||^2</span> (norme au carré)</li>
+                        <li><span class="math-symbol">\vec{u} \cdot \vec{v} = ||\vec{u}|| · ||\vec{v}|| · \cos(\vec{u},\vec{v})</span></li>
+                    </ul>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Produit vectoriel</h4>
+                    <p class="mb-3">Le produit vectoriel de deux vecteurs <span class="math-symbol">\vec{u} = (x, y, z)</span> et <span class="math-symbol">\vec{v} = (x', y', z')</span> est défini par:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">\vec{u} \times \vec{v} = (y·z' - z·y', z·x' - x·z', x·y' - y·x')</span></p>
+                    </div>
+                    
+                    <p class="mb-3">Propriétés du produit vectoriel:</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li><span class="math-symbol">\vec{u} \times \vec{v} = -\vec{v} \times \vec{u}</span> (anti-commutativité)</li>
+                        <li><span class="math-symbol">\vec{u} \times \vec{u} = \vec{0}</span></li>
+                        <li><span class="math-symbol">||\vec{u} \times \vec{v}|| = ||\vec{u}|| · ||\vec{v}|| · \sin(\vec{u},\vec{v})</span></li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">4.2 Droites et Plans dans l'Espace</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Équation d'une droite</h4>
+                    <p class="mb-3">Une droite passant par le point <span class="math-symbol">A(x_A, y_A, z_A)</span> et de vecteur directeur <span class="math-symbol">\vec{v} = (a, b, c)</span> a pour équation paramétrique:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">
+                            \begin{cases}
+                            x = x_A + at \\
+                            y = y_A + bt \\
+                            z = z_A + ct
+                            \end{cases}
+                        </span> où <span class="math-symbol">t \in \mathbb{R}</span></p>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Équation d'un plan</h4>
+                    <p class="mb-3">Un plan de vecteur normal <span class="math-symbol">\vec{n} = (a, b, c)</span> passant par le point <span class="math-symbol">A(x_A, y_A, z_A)</span> a pour équation cartésienne:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">a(x - x_A) + b(y - y_A) + c(z - z_A) = 0</span></p>
+                        <p>ou <span class="math-symbol">ax + by + cz + d = 0</span> avec <span class="math-symbol">d = -(ax_A + by_A + cz_A)</span></p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">4.3 Positions Relatives</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Droites dans l'espace</h4>
+                    <p class="mb-3">Deux droites dans l'espace peuvent être:</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li>Sécantes (un point d'intersection)</li>
+                        <li>Parallèles (vecteurs directeurs colinéaires, pas d'intersection)</li>
+                        <li>Non coplanaires (ni sécantes, ni parallèles)</li>
+                    </ul>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Droite et plan</h4>
+                    <p class="mb-3">Une droite et un plan peuvent être:</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li>Sécants (un point d'intersection)</li>
+                        <li>La droite est incluse dans le plan</li>
+                        <li>Parallèles (pas d'intersection)</li>
+                    </ul>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Plans dans l'espace</h4>
+                    <p class="mb-3">Deux plans dans l'espace peuvent être:</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li>Sécants (intersection = une droite)</li>
+                        <li>Parallèles (pas d'intersection)</li>
+                        <li>Confondus</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">4.4 Exercices</h3>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold mb-2">Exercice 1: Vecteurs dans l'espace</h4>
+                        <p>Soient les vecteurs <span class="math-symbol">\vec{u} = (2, -1, 3)</span> et <span class="math-symbol">\vec{v} = (1, 2, -2)</span>.</p>
+                        <p>a) Calculer <span class="math-symbol">\vec{u} \cdot \vec{v}</span>.</p>
+                        <p>b) Calculer <span class="math-symbol">\vec{u} \times \vec{v}</span>.</p>
+                        <p>c) Les vecteurs <span class="math-symbol">\vec{u}</span> et <span class="math-symbol">\vec{v}</span> sont-ils orthogonaux?</p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution7')">Voir la solution</button>
+                        
+                        <div id="solution7" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solution:</strong></p>
+                            <p>a) <span class="math-symbol">\vec{u} \cdot \vec{v} = 2×1 + (-1)×2 + 3×(-2) = 2 - 2 - 6 = -6</span></p>
+                            
+                            <p>b) <span class="math-symbol">\vec{u} \times \vec{v} = 
+                            \begin{vmatrix} 
+                            \vec{i} & \vec{j} & \vec{k} \\ 
+                            2 & -1 & 3 \\ 
+                            1 & 2 & -2
+                            \end{vmatrix}</span></p>
+                            <p><span class="math-symbol">= \vec{i} \begin{vmatrix} -1 & 3 \\ 2 & -2 \end{vmatrix} - \vec{j} \begin{vmatrix} 2 & 3 \\ 1 & -2 \end{vmatrix} + \vec{k} \begin{vmatrix} 2 & -1 \\ 1 & 2 \end{vmatrix}</span></p>
+                            <p><span class="math-symbol">= \vec{i}((-1)×(-2) - 3×2) - \vec{j}(2×(-2) - 3×1) + \vec{k}(2×2 - (-1)×1)</span></p>
+                            <p><span class="math-symbol">= \vec{i}(2 - 6) - \vec{j}(-4 - 3) + \vec{k}(4 + 1)</span></p>
+                            <p><span class="math-symbol">= \vec{i}(-4) - \vec{j}(-7) + \vec{k}(5)</span></p>
+                            <p><span class="math-symbol">= (-4, 7, 5)</span></p>
+                            
+                            <p>c) Deux vecteurs sont orthogonaux si leur produit scalaire est nul.</p>
+                            <p>Comme <span class="math-symbol">\vec{u} \cdot \vec{v} = -6 \neq 0</span>, les vecteurs <span class="math-symbol">\vec{u}</span> et <span class="math-symbol">\vec{v}</span> ne sont pas orthogonaux.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Exercice 2: Droites et plans</h4>
+                        <p>Soit le plan <span class="math-symbol">P</span> d'équation <span class="math-symbol">2x - y + 3z - 4 = 0</span> et la droite <span class="math-symbol">D</span> passant par le point <span class="math-symbol">A(1, 2, 0)</span> et de vecteur directeur <span class="math-symbol">\vec{v} = (2, 1, -1)</span>.</p>
+                        <p>a) Déterminer si la droite <span class="math-symbol">D</span> et le plan <span class="math-symbol">P</span> sont sécants, parallèles ou si <span class="math-symbol">D</span> est incluse dans <span class="math-symbol">P</span>.</p>
+                        <p>b) Si <span class="math-symbol">D</span> et <span class="math-symbol">P</span> sont sécants, déterminer les coordonnées du point d'intersection.</p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution8')">Voir la solution</button>
+                        
+                        <div id="solution8" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solution:</strong></p>
+                            <p>a) Le vecteur normal au plan <span class="math-symbol">P</span> est <span class="math-symbol">\vec{n} = (2, -1, 3)</span>.</p>
+                            <p>Pour déterminer la position relative, calculons <span class="math-symbol">\vec{n} \cdot \vec{v}</span>:</p>
+                            <p><span class="math-symbol">\vec{n} \cdot \vec{v} = 2×2 + (-1)×1 + 3×(-1) = 4 - 1 - 3 = 0</span></p>
+                            
+                            <p>Comme <span class="math-symbol">\vec{n} \cdot \vec{v} = 0</span>, la droite <span class="math-symbol">D</span> est parallèle au plan <span class="math-symbol">P</span> ou incluse dans <span class="math-symbol">P</span>.</p>
+                            
+                            <p>Vérifions si le point <span class="math-symbol">A(1, 2, 0)</span> appartient au plan <span class="math-symbol">P</span>:</p>
+                            <p><span class="math-symbol">2×1 - 1×2 + 3×0 - 4 = 2 - 2 + 0 - 4 = -4 \neq 0</span></p>
+                            
+                            <p>Le point <span class="math-symbol">A</span> n'appartient pas au plan <span class="math-symbol">P</span>, donc la droite <span class="math-symbol">D</span> et le plan <span class="math-symbol">P</span> sont parallèles.</p>
+                            
+                            <p>b) Comme la droite et le plan sont parallèles, il n'y a pas de point d'intersection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Probabilités -->
+            <div id="probabilites" class="tab-content bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4">Chapitre 5: Probabilités</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">5.1 Espace Probabilisé</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Définitions</h4>
+                    <p class="mb-3">Un espace probabilisé est un triplet <span class="math-symbol">(\Omega, \mathcal{A}, P)</span> où:</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li><span class="math-symbol">\Omega</span> est l'ensemble des résultats possibles (univers)</li>
+                        <li><span class="math-symbol">\mathcal{A}</span> est l'ensemble des événements</li>
+                        <li><span class="math-symbol">P</span> est la fonction de probabilité</li>
+                    </ul>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Propriétés des probabilités</h4>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li><span class="math-symbol">0 \leq P(A) \leq 1</span> pour tout événement <span class="math-symbol">A</span></li>
+                        <li><span class="math-symbol">P(\Omega) = 1</span></li>
+                        <li><span class="math-symbol">P(\emptyset) = 0</span></li>
+                        <li>Si <span class="math-symbol">A</span> et <span class="math-symbol">B</span> sont incompatibles (disjoints), alors <span class="math-symbol">P(A \cup B) = P(A) + P(B)</span></li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">5.2 Probabilité Conditionnelle</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Définition</h4>
+                    <p class="mb-3">La probabilité conditionnelle de <span class="math-symbol">A</span> sachant <span class="math-symbol">B</span> est définie par:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">P(A|B) = \frac{P(A \cap B)}{P(B)}</span> si <span class="math-symbol">P(B) \neq 0</span></p>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Formule des probabilités totales</h4>
+                    <p class="mb-3">Si <span class="math-symbol">(B_i)_{i \in I}</span> forme une partition de <span class="math-symbol">\Omega</span>, alors pour tout événement <span class="math-symbol">A</span>:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">P(A) = \sum_{i \in I} P(A|B_i) \times P(B_i)</span></p>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Formule de Bayes</h4>
+                    <p class="mb-3">Pour deux événements <span class="math-symbol">A</span> et <span class="math-symbol">B</span> tels que <span class="math-symbol">P(A) \neq 0</span> et <span class="math-symbol">P(B) \neq 0</span>:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">P(B|A) = \frac{P(A|B) \times P(B)}{P(A)}</span></p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">5.3 Variables Aléatoires</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Définition</h4>
+                    <p class="mb-3">Une variable aléatoire <span class="math-symbol">X</span> est une fonction qui associe à chaque élément de <span class="math-symbol">\Omega</span> une valeur numérique.</p>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Loi de probabilité</h4>
+                    <p class="mb-3">La loi de probabilité d'une variable aléatoire discrète <span class="math-symbol">X</span> est donnée par:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">P(X = x_i) = p_i</span> avec <span class="math-symbol">\sum p_i = 1</span></p>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Espérance mathématique</h4>
+                    <p class="mb-3">L'espérance d'une variable aléatoire discrète <span class="math-symbol">X</span> est définie par:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">E(X) = \sum x_i \times P(X = x_i)</span></p>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Variance et écart-type</h4>
+                    <p class="mb-3">La variance d'une variable aléatoire <span class="math-symbol">X</span> est définie par:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">V(X) = E((X - E(X))^2) = E(X^2) - E(X)^2</span></p>
+                    </div>
+                    <p class="mb-3">L'écart-type est <span class="math-symbol">\sigma(X) = \sqrt{V(X)}</span>.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">5.4 Lois de Probabilité Usuelles</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Loi binomiale</h4>
+                            <p>Une variable aléatoire <span class="math-symbol">X</span> suit une loi binomiale <span class="math-symbol">B(n,p)</span> si:</p>
+                            <p><span class="math-symbol">P(X = k) = C_n^k \times p^k \times (1-p)^{n-k}</span></p>
+                            <p class="mt-2"><strong>Espérance:</strong> <span class="math-symbol">E(X) = n \times p</span></p>
+                            <p><strong>Variance:</strong> <span class="math-symbol">V(X) = n \times p \times (1-p)</span></p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Loi uniforme</h4>
+                            <p>Une variable aléatoire <span class="math-symbol">X</span> suit une loi uniforme sur <span class="math-symbol">\{x_1, x_2, ..., x_n\}</span> si:</p>
+                            <p><span class="math-symbol">P(X = x_i) = \frac{1}{n}</span> pour tout <span class="math-symbol">i</span></p>
+                            <p class="mt-2"><strong>Espérance:</strong> <span class="math-symbol">E(X) = \frac{x_1 + x_2 + ... + x_n}{n}</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">5.5 Exercices</h3>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold mb-2">Exercice 1: Probabilités conditionnelles</h4>
+                        <p>Une urne contient 5 boules rouges, 3 boules bleues et 2 boules vertes. On tire successivement et sans remise deux boules de l'urne.</p>
+                        <p>a) Quelle est la probabilité de tirer deux boules rouges?</p>
+                        <p>b) Quelle est la probabilité de tirer une boule rouge puis une boule bleue?</p>
+                        <p>c) Quelle est la probabilité d'obtenir deux boules de couleurs différentes?</p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution9')">Voir la solution</button>
+                        
+                        <div id="solution9" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solution:</strong></p>
+                            <p>Nombre total de boules: 5 + 3 + 2 = 10</p>
+                            
+                            <p>a) Probabilité de tirer deux boules rouges:</p>
+                            <p><span class="math-symbol">P(R_1 \cap R_2) = P(R_1) \times P(R_2|R_1) = \frac{5}{10} \times \frac{4}{9} = \frac{20}{90} = \frac{2}{9}</span></p>
+                            
+                            <p>b) Probabilité de tirer une boule rouge puis une boule bleue:</p>
+                            <p><span class="math-symbol">P(R_1 \cap B_2) = P(R_1) \times P(B_2|R_1) = \frac{5}{10} \times \frac{3}{9} = \frac{15}{90} = \frac{1}{6}</span></p>
+                            
+                            <p>c) Probabilité d'obtenir deux boules de couleurs différentes:</p>
+                            <p>C'est le complémentaire de l'événement "obtenir deux boules de même couleur":</p>
+                            <p><span class="math-symbol">P(\text{couleurs différentes}) = 1 - P(\text{même couleur})</span></p>
+                            <p><span class="math-symbol">P(\text{même couleur}) = P(R_1 \cap R_2) + P(B_1 \cap B_2) + P(V_1 \cap V_2)</span></p>
+                            <p><span class="math-symbol">= \frac{5}{10} \times \frac{4}{9} + \frac{3}{10} \times \frac{2}{9} + \frac{2}{10} \times \frac{1}{9}</span></p>
+                            <p><span class="math-symbol">= \frac{20}{90} + \frac{6}{90} + \frac{2}{90} = \frac{28}{90} = \frac{14}{45}</span></p>
+                            <p><span class="math-symbol">P(\text{couleurs différentes}) = 1 - \frac{14}{45} = \frac{45-14}{45} = \frac{31}{45}</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Exercice 2: Loi binomiale</h4>
+                        <p>On lance 8 fois une pièce équilibrée. Soit <span class="math-symbol">X</span> la variable aléatoire qui compte le nombre de "Pile" obtenus.</p>
+                        <p>a) Quelle est la loi de probabilité de <span class="math-symbol">X</span>?</p>
+                        <p>b) Calculer <span class="math-symbol">P(X = 3)</span>.</p>
+                        <p>c) Calculer <span class="math-symbol">P(X \geq 6)</span>.</p>
+                        <p>d) Déterminer l'espérance et la variance de <span class="math-symbol">X</span>.</p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution10')">Voir la solution</button>
+                        
+                        <div id="solution10" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solution:</strong></p>
+                            <p>a) La variable aléatoire <span class="math-symbol">X</span> suit une loi binomiale <span class="math-symbol">B(8, 0.5)</span> car:</p>
+                            <ul class="list-disc pl-5 mb-3">
+                                <li>On répète 8 fois la même épreuve (lancer de pièce)</li>
+                                <li>Chaque épreuve a deux issues possibles: Pile ou Face</li>
+                                <li>La probabilité d'obtenir Pile est constante: <span class="math-symbol">p = 0.5</span></li>
+                                <li>Les lancers sont indépendants</li>
+                            </ul>
+                            
+                            <p>b) <span class="math-symbol">P(X = 3) = C_8^3 \times (0.5)^3 \times (0.5)^{8-3} = C_8^3 \times (0.5)^8</span></p>
+                            <p><span class="math-symbol">C_8^3 = \frac{8!}{3!(8-3)!} = \frac{8!}{3!5!} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = 56</span></p>
+                            <p><span class="math-symbol">P(X = 3) = 56 \times (0.5)^8 = 56 \times \frac{1}{256} = \frac{56}{256} = \frac{7}{32}</span></p>
+                            
+                            <p>c) <span class="math-symbol">P(X \geq 6) = P(X = 6) + P(X = 7) + P(X = 8)</span></p>
+                            <p><span class="math-symbol">= C_8^6 \times (0.5)^8 + C_8^7 \times (0.5)^8 + C_8^8 \times (0.5)^8</span></p>
+                            <p><span class="math-symbol">= (C_8^6 + C_8^7 + C_8^8) \times (0.5)^8</span></p>
+                            <p><span class="math-symbol">= (28 + 8 + 1) \times (0.5)^8 = 37 \times \frac{1}{256} = \frac{37}{256}</span></p>
+                            
+                            <p>d) Pour une loi binomiale <span class="math-symbol">B(n,p)</span>:</p>
+                            <p><span class="math-symbol">E(X) = n \times p = 8 \times 0.5 = 4</span></p>
+                            <p><span class="math-symbol">V(X) = n \times p \times (1-p) = 8 \times 0.5 \times 0.5 = 2</span></p>
+                            <p><span class="math-symbol">\sigma(X) = \sqrt{V(X)} = \sqrt{2} \approx 1.41</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Statistiques -->
+            <div id="statistiques" class="tab-content bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-4">Chapitre 6: Statistiques</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">6.1 Statistique Descriptive</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Vocabulaire</h4>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li><strong>Population</strong>: ensemble des individus ou objets étudiés</li>
+                        <li><strong>Caractère</strong>: propriété étudiée sur la population</li>
+                        <li><strong>Effectif</strong>: nombre d'individus possédant une valeur donnée du caractère</li>
+                        <li><strong>Fréquence</strong>: rapport de l'effectif sur l'effectif total</li>
+                    </ul>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Types de caractères</h4>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li><strong>Qualitatif</strong>: non mesurable (couleur, sexe, etc.)</li>
+                        <li><strong>Quantitatif discret</strong>: valeurs isolées (nombre d'enfants, etc.)</li>
+                        <li><strong>Quantitatif continu</strong>: valeurs dans un intervalle (taille, poids, etc.)</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">6.2 Paramètres de Position</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Mode</h4>
+                    <p class="mb-3">Le mode est la valeur qui apparaît le plus fréquemment dans une série statistique.</p>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Moyenne</h4>
+                    <p class="mb-3">La moyenne d'une série statistique <span class="math-symbol">(x_i)</span> d'effectifs <span class="math-symbol">(n_i)</span> est:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">\bar{x} = \frac{\sum n_i \times x_i}{\sum n_i}</span></p>
+                    </div>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Médiane</h4>
+                    <p class="mb-3">La médiane est la valeur qui partage la série ordonnée en deux parties de même effectif.</p>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Quartiles</h4>
+                    <p class="mb-3">Les quartiles divisent la série ordonnée en quatre parties égales:</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li><strong>Premier quartile (Q1)</strong>: 25% des valeurs sont inférieures ou égales à Q1</li>
+                        <li><strong>Deuxième quartile (Q2)</strong>: c'est la médiane</li>
+                        <li><strong>Troisième quartile (Q3)</strong>: 75% des valeurs sont inférieures ou égales à Q3</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">6.3 Paramètres de Dispersion</h3>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Étendue</h4>
+                    <p class="mb-3">L'étendue est la différence entre la plus grande et la plus petite valeur de la série.</p>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Écart interquartile</h4>
+                    <p class="mb-3">L'écart interquartile est la différence entre le troisième et le premier quartile: <span class="math-symbol">EIQ = Q3 - Q1</span>.</p>
+                    
+                    <h4 class="font-semibold mt-4 mb-2">Variance et écart-type</h4>
+                    <p class="mb-3">La variance d'une série statistique <span class="math-symbol">(x_i)</span> d'effectifs <span class="math-symbol">(n_i)</span> est:</p>
+                    <div class="formula">
+                        <p><span class="math-symbol">V = \frac{\sum n_i \times (x_i - \bar{x})^2}{\sum n_i}</span></p>
+                    </div>
+                    <p class="mb-3">L'écart-type est la racine carrée de la variance: <span class="math-symbol">\sigma = \sqrt{V}</span>.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">6.4 Représentations Graphiques</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Diagramme en bâtons</h4>
+                            <p>Utilisé pour les séries statistiques à caractère discret.</p>
+                            <svg width="200" height="150" viewBox="0 0 200 150" class="mx-auto mt-2">
+                                <line x1="20" y1="130" x2="180" y2="130" stroke="black" stroke-width="2"/>
+                                <line x1="20" y1="130" x2="20" y2="20" stroke="black" stroke-width="2"/>
+                                <line x1="50" y1="130" x2="50" y2="80" stroke="blue" stroke-width="4"/>
+                                <line x1="80" y1="130" x2="80" y2="60" stroke="blue" stroke-width="4"/>
+                                <line x1="110" y1="130" x2="110" y2="40" stroke="blue" stroke-width="4"/>
+                                <line x1="140" y1="130" x2="140" y2="90" stroke="blue" stroke-width="4"/>
+                                <text x="50" y="145" text-anchor="middle" font-size="12">A</text>
+                                <text x="80" y="145" text-anchor="middle" font-size="12">B</text>
+                                <text x="110" y="145" text-anchor="middle" font-size="12">C</text>
+                                <text x="140" y="145" text-anchor="middle" font-size="12">D</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Diagramme circulaire</h4>
+                            <p>Représente la répartition des fréquences.</p>
+                            <svg width="150" height="150" viewBox="0 0 150 150" class="mx-auto mt-2">
+                                <circle cx="75" cy="75" r="60" fill="white" stroke="black" stroke-width="1"/>
+                                <path d="M75,75 L75,15 A60,60 0 0,1 129,99 z" fill="red"/>
+                                <path d="M75,75 L129,99 A60,60 0 0,1 21,99 z" fill="blue"/>
+                                <path d="M75,75 L21,99 A60,60 0 0,1 75,15 z" fill="green"/>
+                                <text x="95" y="45" font-size="12">30%</text>
+                                <text x="75" y="105" font-size="12">45%</text>
+                                <text x="45" y="60" font-size="12">25%</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Histogramme</h4>
+                            <p>Utilisé pour les séries statistiques à caractère continu.</p>
+                            <svg width="200" height="150" viewBox="0 0 200 150" class="mx-auto mt-2">
+                                <line x1="20" y1="130" x2="180" y2="130" stroke="black" stroke-width="2"/>
+                                <line x1="20" y1="130" x2="20" y2="20" stroke="black" stroke-width="2"/>
+                                <rect x="30" y="90" width="30" height="40" fill="lightblue" stroke="blue"/>
+                                <rect x="60" y="70" width="30" height="60" fill="lightblue" stroke="blue"/>
+                                <rect x="90" y="50" width="30" height="80" fill="lightblue" stroke="blue"/>
+                                <rect x="120" y="80" width="30" height="50" fill="lightblue" stroke="blue"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Boîte à moustaches</h4>
+                            <p>Représente les quartiles, la médiane et les valeurs extrêmes.</p>
+                            <svg width="200" height="100" viewBox="0 0 200 100" class="mx-auto mt-2">
+                                <line x1="20" y1="50" x2="180" y2="50" stroke="black" stroke-width="1"/>
+                                <line x1="40" y1="40" x2="40" y2="60" stroke="black" stroke-width="1"/>
+                                <rect x="40" y="30" width="60" height="40" fill="none" stroke="blue" stroke-width="2"/>
+                                <line x1="70" y1="30" x2="70" y2="70" stroke="red" stroke-width="2"/>
+                                <rect x="100" y="30" width="60" height="40" fill="none" stroke="blue" stroke-width="2"/>
+                                <line x1="160" y1="40" x2="160" y2="60" stroke="black" stroke-width="1"/>
+                                <line x1="40" y1="50" x2="20" y2="50" stroke="black" stroke-width="1"/>
+                                <line x1="160" y1="50" x2="180" y2="50" stroke="black" stroke-width="1"/>
+                                <text x="40" y="80" text-anchor="middle" font-size="10">Q1</text>
+                                <text x="70" y="80" text-anchor="middle" font-size="10">Med</text>
+                                <text x="160" y="80" text-anchor="middle" font-size="10">Q3</text>
+                                <text x="20" y="80" text-anchor="middle" font-size="10">Min</text>
+                                <text x="180" y="80" text-anchor="middle" font-size="10">Max</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">6.5 Exercices</h3>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold mb-2">Exercice 1: Paramètres statistiques</h4>
+                        <p>On a relevé les notes suivantes lors d'un contrôle de mathématiques:</p>
+                        <table class="min-w-full bg-white border border-gray-200 mt-2 mb-3">
+                            <thead>
+                                <tr>
+                                    <th class="py-1 px-2 border-b">Note</th>
+                                    <th class="py-1 px-2 border-b">8</th>
+                                    <th class="py-1 px-2 border-b">10</th>
+                                    <th class="py-1 px-2 border-b">12</th>
+                                    <th class="py-1 px-2 border-b">14</th>
+                                    <th class="py-1 px-2 border-b">16</th>
+                                    <th class="py-1 px-2 border-b">18</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-1 px-2 border-b">Effectif</td>
+                                    <td class="py-1 px-2 border-b">3</td>
+                                    <td class="py-1 px-2 border-b">5</td>
+                                    <td class="py-1 px-2 border-b">8</td>
+                                    <td class="py-1 px-2 border-b">6</td>
+                                    <td class="py-1 px-2 border-b">4</td>
+                                    <td class="py-1 px-2 border-b">2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>a) Calculer la moyenne de cette série.</p>
+                        <p>b) Déterminer la médiane, le premier quartile et le troisième quartile.</p>
+                        <p>c) Calculer l'écart-type.</p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution11')">Voir la solution</button>
+                        
+                        <div id="solution11" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solution:</strong></p>
+                            <p>Effectif total: 3 + 5 + 8 + 6 + 4 + 2 = 28 élèves</p>
+                            
+                            <p>a) Moyenne:</p>
+                            <p><span class="math-symbol">\bar{x} = \frac{\sum n_i \times x_i}{\sum n_i}</span></p>
+                            <p><span class="math-symbol">= \frac{3 \times 8 + 5 \times 10 + 8 \times 12 + 6 \times 14 + 4 \times 16 + 2 \times 18}{28}</span></p>
+                            <p><span class="math-symbol">= \frac{24 + 50 + 96 + 84 + 64 + 36}{28} = \frac{354}{28} = 12.64</span></p>
+                            
+                            <p>b) Pour déterminer la médiane et les quartiles, établissons d'abord le tableau des effectifs cumulés croissants:</p>
+                            <table class="min-w-full bg-white border border-gray-200 mt-2 mb-3">
+                                <thead>
+                                    <tr>
+                                        <th class="py-1 px-2 border-b">Note</th>
+                                        <th class="py-1 px-2 border-b">8</th>
+                                        <th class="py-1 px-2 border-b">10</th>
+                                        <th class="py-1 px-2 border-b">12</th>
+                                        <th class="py-1 px-2 border-b">14</th>
+                                        <th class="py-1 px-2 border-b">16</th>
+                                        <th class="py-1 px-2 border-b">18</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-1 px-2 border-b">Effectif</td>
+                                        <td class="py-1 px-2 border-b">3</td>
+                                        <td class="py-1 px-2 border-b">5</td>
+                                        <td class="py-1 px-2 border-b">8</td>
+                                        <td class="py-1 px-2 border-b">6</td>
+                                        <td class="py-1 px-2 border-b">4</td>
+                                        <td class="py-1 px-2 border-b">2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1 px-2 border-b">ECC</td>
+                                        <td class="py-1 px-2 border-b">3</td>
+                                        <td class="py-1 px-2 border-b">8</td>
+                                        <td class="py-1 px-2 border-b">16</td>
+                                        <td class="py-1 px-2 border-b">22</td>
+                                        <td class="py-1 px-2 border-b">26</td>
+                                        <td class="py-1 px-2 border-b">28</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <p>Médiane (rang 14): La médiane est la valeur du caractère au rang 14. Comme l'effectif cumulé 8 < 14 < 16, la médiane est 12.</p>
+                            
+                            <p>Premier quartile (rang 7): Comme l'effectif cumulé 3 < 7 < 8, le premier quartile est 10.</p>
+                            
+                            <p>Troisième quartile (rang 21): Comme l'effectif cumulé 16 < 21 < 22, le troisième quartile est 14.</p>
+                            
+                            <p>c) Écart-type:</p>
+                            <p><span class="math-symbol">V = \frac{\sum n_i \times (x_i - \bar{x})^2}{\sum n_i}</span></p>
+                            <p><span class="math-symbol">= \frac{3 \times (8-12.64)^2 + 5 \times (10-12.64)^2 + 8 \times (12-12.64)^2 + 6 \times (14-12.64)^2 + 4 \times (16-12.64)^2 + 2 \times (18-12.64)^2}{28}</span></p>
+                            <p><span class="math-symbol">= \frac{3 \times 21.53 + 5 \times 6.97 + 8 \times 0.41 + 6 \times 1.85 + 4 \times 11.29 + 2 \times 28.73}{28}</span></p>
+                            <p><span class="math-symbol">= \frac{64.59 + 34.85 + 3.28 + 11.1 + 45.16 + 57.46}{28} = \frac{216.44}{28} = 7.73</span></p>
+                            <p><span class="math-symbol">\sigma = \sqrt{7.73} \approx 2.78</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Exercice 2: Représentation graphique</h4>
+                        <p>Le tableau suivant donne la répartition des élèves d'une classe selon leur taille (en cm):</p>
+                        <table class="min-w-full bg-white border border-gray-200 mt-2 mb-3">
+                            <thead>
+                                <tr>
+                                    <th class="py-1 px-2 border-b">Taille</th>
+                                    <th class="py-1 px-2 border-b">[150;155[</th>
+                                    <th class="py-1 px-2 border-b">[155;160[</th>
+                                    <th class="py-1 px-2 border-b">[160;165[</th>
+                                    <th class="py-1 px-2 border-b">[165;170[</th>
+                                    <th class="py-1 px-2 border-b">[170;175[</th>
+                                    <th class="py-1 px-2 border-b">[175;180[</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-1 px-2 border-b">Effectif</td>
+                                    <td class="py-1 px-2 border-b">3</td>
+                                    <td class="py-1 px-2 border-b">7</td>
+                                    <td class="py-1 px-2 border-b">12</td>
+                                    <td class="py-1 px-2 border-b">8</td>
+                                    <td class="py-1 px-2 border-b">5</td>
+                                    <td class="py-1 px-2 border-b">2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>a) Calculer les fréquences et les fréquences cumulées croissantes.</p>
+                        <p>b) Représenter cette série par un histogramme.</p>
+                        <p>c) Estimer graphiquement la médiane.</p>
+                        
+                        <button class="mt-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition" onclick="toggleSolution('solution12')">Voir la solution</button>
+                        
+                        <div id="solution12" class="hidden mt-3 bg-white p-3 rounded border border-blue-200">
+                            <p><strong>Solution:</strong></p>
+                            <p>Effectif total: 3 + 7 + 12 + 8 + 5 + 2 = 37 élèves</p>
+                            
+                            <p>a) Tableau des fréquences et fréquences cumulées croissantes:</p>
+                            <table class="min-w-full bg-white border border-gray-200 mt-2 mb-3">
+                                <thead>
+                                    <tr>
+                                        <th class="py-1 px-2 border-b">Taille</th>
+                                        <th class="py-1 px-2 border-b">[150;155[</th>
+                                        <th class="py-1 px-2 border-b">[155;160[</th>
+                                        <th class="py-1 px-2 border-b">[160;165[</th>
+                                        <th class="py-1 px-2 border-b">[165;170[</th>
+                                        <th class="py-1 px-2 border-b">[170;175[</th>
+                                        <th class="py-1 px-2 border-b">[175;180[</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-1 px-2 border-b">Effectif</td>
+                                        <td class="py-1 px-2 border-b">3</td>
+                                        <td class="py-1 px-2 border-b">7</td>
+                                        <td class="py-1 px-2 border-b">12</td>
+                                        <td class="py-1 px-2 border-b">8</td>
+                                        <td class="py-1 px-2 border-b">5</td>
+                                        <td class="py-1 px-2 border-b">2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1 px-2 border-b">Fréquence</td>
+                                        <td class="py-1 px-2 border-b">0.081</td>
+                                        <td class="py-1 px-2 border-b">0.189</td>
+                                        <td class="py-1 px-2 border-b">0.324</td>
+                                        <td class="py-1 px-2 border-b">0.216</td>
+                                        <td class="py-1 px-2 border-b">0.135</td>
+                                        <td class="py-1 px-2 border-b">0.054</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1 px-2 border-b">FCC</td>
+                                        <td class="py-1 px-2 border-b">0.081</td>
+                                        <td class="py-1 px-2 border-b">0.270</td>
+                                        <td class="py-1 px-2 border-b">0.594</td>
+                                        <td class="py-1 px-2 border-b">0.810</td>
+                                        <td class="py-1 px-2 border-b">0.945</td>
+                                        <td class="py-1 px-2 border-b">1.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <p>b) Histogramme: Les classes ont toutes la même amplitude (5 cm), donc les hauteurs des rectangles sont proportionnelles aux effectifs.</p>
+                            
+                            <p>c) Estimation de la médiane:</p>
+                            <p>La médiane correspond à une fréquence cumulée de 0.5.</p>
+                            <p>D'après le tableau, 0.5 se situe entre 0.270 et 0.594, donc dans la classe [160;165[.</p>
+                            <p>Par interpolation linéaire:</p>
+                            <p><span class="math-symbol">Me = 160 + 5 \times \frac{0.5 - 0.270}{0.594 - 0.270} = 160 + 5 \times \frac{0.23}{0.324} = 160 + 5 \times 0.71 = 160 + 3.55 = 163.55</span></p>
+                            <p>La médiane est donc approximativement 163.6 cm.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-indigo-700 mb-4">Conseils pour réussir au Probatoire</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Méthodes de travail</h3>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li class="mb-2">Établir un planning de révision régulier</li>
+                        <li class="mb-2">Alterner entre différents chapitres pour maintenir l'intérêt</li>
+                        <li class="mb-2">Faire des fiches de synthèse pour chaque chapitre</li>
+                        <li class="mb-2">S'entraîner avec des exercices variés et des annales</li>
+                        <li class="mb-2">Former des groupes d'étude pour s'expliquer mutuellement les concepts</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Le jour de l'examen</h3>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li class="mb-2">Lire attentivement l'énoncé complet avant de commencer</li>
+                        <li class="mb-2">Gérer son temps en fonction du barème</li>
+                        <li class="mb-2">Soigner la présentation et la rédaction</li>
+                        <li class="mb-2">Vérifier les calculs et les résultats</li>
+                        <li class="mb-2">Ne pas rester bloqué sur une question, passer à la suivante</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-6 bg-indigo-50 p-4 rounded-lg">
+                <h3 class="text-xl font-semibold text-indigo-700 mb-3">Points clés à maîtriser</h3>
+                <div<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962af554946fe3c9',t:'MTc1MzEwMzYzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
